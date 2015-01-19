@@ -1,17 +1,20 @@
 #!/bin/sh
 
 gmrender_clone(){
+  local folder="gmrender-resurrect"
+
   echo "\n====== Cloning git repository ======"
-  if [ ! -d ~/gmrender-resurrect ]
+
+  if [ ! -d ~/$folder ]
     then
-      if [ ! -x git ] ; then
+      if [ command -v git >/dev/null 2>&1 ] ; then
         echo "Command 'git' not found. Installing ..."
         apt-get -y install git
       fi
 
       cd ~ ; git clone http://github.com/hzeller/gmrender-resurrect.git
     else
-      echo "The folder 'gmrender-resurrect' already exists."
+      echo "The folder '${folder}' already exists."
   fi
   echo "Done cloning ...\n"
 }
@@ -28,14 +31,14 @@ auswahl=$(dialog --stdout --title "$title" \
 for choice in $auswahl ; do
   case $choice in
     '"ASLA"')
-      ./scripts/alsa-setup.sh 
+      ./scripts/alsa-setup.sh
       ;;
     '"GStreamer"')
       echo "GStreamer setup ..."
       ;;
     '"Clone"')
-      gmrender_clone ;;
-
+      gmrender_clone
+      ;;
     '"Make"')
       echo "Make ..."
       ;;
