@@ -1,5 +1,21 @@
 #!/bin/sh
 
+gmrender_clone(){
+  echo "\n====== Cloning git repository ======"
+  if [ ! -d ~/gmrender-resurrect ]
+    then
+      if [ ! -x git ] ; then
+        echo "Command 'git' not found. Installing ..."
+        apt-get -y install git
+      fi
+
+      cd ~ ; git clone http://github.com/hzeller/gmrender-resurrect.git
+    else
+      echo "The folder 'gmrender-resurrect' already exists."
+  fi
+  echo "Done cloning ...\n"
+}
+
 title="GMediaRender Setup for Banana Pi"
 
 auswahl=$(dialog --stdout --title "$title" \
@@ -18,8 +34,8 @@ for choice in $auswahl ; do
       echo "GStreamer setup ..."
       ;;
     '"Clone"')
-      echo "Cloning ..."
-      ;;
+      gmrender_clone ;;
+
     '"Make"')
       echo "Make ..."
       ;;
