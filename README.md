@@ -3,6 +3,6 @@ Some helpful files etc.
 
 ## GMediaRender
 
-GMediaRender ([1](https://github.com/hzeller/gmrender-resurrect)) is a UPnP media renderer. Due to mutiple dependecies I made a small script for installing, which can be downloaded (by terminal) with the following command:
+GMediaRender ([1](https://github.com/hzeller/gmrender-resurrect)) is a UPnP media renderer. The following scripts installs all needed dependencies to run `gmediarender` in a headless debian machine (tested with Bananian 15.01).
 
 `wget https://raw.githubusercontent.com/COelsner/banana-pro/master/gmediarender/gmediarender-setup.sh`
