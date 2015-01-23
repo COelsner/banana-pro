@@ -41,12 +41,14 @@ gstreamer_setup(){
   if [ $choice -eq 1 ] ; then
     apt-get -y install libgstreamer0.10-dev \
       gstreamer0.10-tools gstreamer0.10-alsa \
-      gstreamer0.10-plugins-base gstreamer0.10-plugins-good \
+      gstreamer0.10-plugins-base \
+      gstreamer0.10-plugins-good gstreamer0.10-plugins-bad \
       gstreamer0.10-plugins-ugly gstreamer0.10-ffmpeg
   else
     apt-get -y -t wheezy-backports install \
       libgstreamer1.0-dev gstreamer1.0-alsa \
       gstreamer1.0-plugins-base gstreamer1.0-libav \
+      gstreamer1.0-plugins-bad \
       gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly
   fi
 }
